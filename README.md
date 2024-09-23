@@ -1,2 +1,6 @@
-# Avalia-o-t-cnica-2---Modula-Mais
-Avaliação técnica 2 - Modula Mais
+# Gestão de Capivaras
+## Como executar a aplicação
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+
