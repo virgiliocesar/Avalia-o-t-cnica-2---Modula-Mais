@@ -1,7 +1,8 @@
 import express from "express";
-// import mongoose from "mongoose";
+// import conn from "./db/conn";
 import cors from "cors";
-import app from express();
+
+const app = express();
 
 app.use(cors());
 
@@ -9,3 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 //* DB connection
+// conn();
+
+app.listen(3000, function () {
+  console.log("Servidor online");
+});
+
+//* virgio ovb7yJShR5lgNoOc

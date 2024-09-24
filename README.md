@@ -5,6 +5,8 @@
    git clone https://github.com/seu-usuario/seu-repositorio.git
 
 ## estruturas de pastas
+<pre><code>
+
 server/
 └── backend/
      ├── src/ onde fica todo codigo do projeto
@@ -14,3 +16,6 @@ server/
      ├   ├── routes/ Centralizar as rotas da aplicação
      ├   └── utils/
      └──app.js
+
+</code></pre>
+
