@@ -1,0 +1,52 @@
+{
+    "teste":[
+{
+  "name": "Senhorita Bigodes",
+  "age": 4,
+  "weight": 65,
+  "status": "Saudável",
+  "habitat": "Lago Sul",
+  "behavior": "Muito ativa, gosta de nadar no lago durante a manhã.",
+  "diet": "Prefere pasto fresco e frutas, especialmente maças.",
+  "observations": "Costuma socializar com Diógenes,muitas vezes são vistos juntos."
+},
+{
+  "name": "Helena",
+  "age": 3,
+  "weight": 58,
+  "status": "Saudável",
+  "habitat": "Floresta Oeste",
+  "behavior": "Não socializa bem com outras capivaras, frequentemente vista descansando na sombra.",
+  "diet": "Consome uma variedade de vegetacäo, incluindo folhas e capim.",
+  "observations": ""
+},
+{
+  "name": "Garibalda",
+  "age": 5,
+  "weight": 70,
+  "status": "Necessita de cuidaddos",
+  "habitat": "Recinto Norte",
+  "behavior": "Mais resrvada, prefere ficar sozinha na maioria das vezes.",
+  "diet": "",
+  "observations": "diagnosticado com uma infecção no olho esquerdo, tatamento com colírio iniciado."
+},{
+  "name": "Diógenes",
+  "age": 2,
+  "weight": 55,
+  "status": "Saudável",
+  "habitat": "Lago Sul",
+  "behavior": "Jovem curioso,explora frequentemente nova áreas do recinto.",
+  "diet": "Gosta de uma dieta variada, incluindo frutos e vegetação densa.",
+  "observations": "Mostra interesse em explorar áreas fora do habitat designado, requer monitoramento extra."
+},{
+  "name": "Margarida",
+  "age": 4,
+  "weight": 70,
+  "status": "Necessita de cuidados",
+  "habitat": "Lago Sul",
+  "behavior": "Grande e dominante, tende a liderar o grupo nas interações sociais.",
+  "diet": "Prefere pasto grosso e casca de árvore.",
+  "observations": "Mostra comportamento protetor, especialmente quando está perto de Senhorita Bigodes."
+}
+]
+}

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const { schema } = mongoose;
-const AnimalsSchema = new schema({
+const { Schema } = mongoose;
+const AnimalsSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -22,19 +22,18 @@ const AnimalsSchema = new schema({
       type: String,
       required: true
   },
-    behavior: {
-      required: false
+  behavior: {
+      type: String,
   },
-    diet: {
-      required: false
+  diet: {
+      type: String,
   },
     observations: {
       type: String,
-      required: false
   }
 },
 //* salva data de criação e de atualização de registro
     { timestamps: true });
 
 const Animals = mongoose.model("Animals", AnimalsSchema);
-  export default Animals;
+export default  Animals
