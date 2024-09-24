@@ -1,5 +1,5 @@
 import express from "express";
-// import conn from "./db/conn";
+import conn from "./db/conn.js";
 import cors from "cors";
 
 const app = express();
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 //* DB connection
-// conn();
+conn();
 
 app.listen(3000, function () {
   console.log("Servidor online");

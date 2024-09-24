@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 
-async function main(options) {
+async function main() {
     try {
+        // mongoose.set("strictQuery", true);
         await mongoose.connect(
           "mongodb+srv://virgilio:ovb7yJShR5lgNoOc@cluster0.8mno9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
         );
