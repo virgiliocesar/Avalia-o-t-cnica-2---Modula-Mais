@@ -11,7 +11,7 @@ const AnimalsSchema = new Schema({
     diet: {type: String,},
     observations: {type: String,}
 },
-//* salva data de criação e de atualização de registro
+//* salva data de criação e da atualização de registro
     { timestamps: true });
 
 const Animals = mongoose.model("Animals", AnimalsSchema);
