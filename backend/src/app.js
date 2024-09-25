@@ -1,9 +1,9 @@
 import express from "express";
-import conn from "./db/conn.js";
 import cors from "cors";
-import router from "./routes/router.js";
-const app = express();
+import conn from "./db/conn.js";
+import animalsRoutes from "./routes/animalsRoutes.js";
 
+const app = express();
 app.use(cors());
 
 //? Permite comunicação de dados via json
@@ -13,10 +13,8 @@ app.use(express.json());
 conn();
 
 //? Routes
-app.use("/api", router);
+app.use("/api/animals", animalsRoutes);
 
-app.listen(3000, function () {
+app.listen(3000, () =>{
   console.log("Servidor online");
 });
-
-//! virgio ovb7yJShR5lgNoOc
