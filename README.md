@@ -1,7 +1,6 @@
-# Gestão de Capivaras
-## Como executar a aplicação
+# Gestão de Animais
 
-## Executar a aplicação
+## Como executar a aplicação
 
 ### Pré-requisitos:
 - Node.js
@@ -10,30 +9,32 @@
 
 ### Instruções:
 1. Clone o repositório:
-   ```bash
+```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
-2.  Instale as dependências: 
-   ```bash
+```
+2. Instale as dependências:
+```bash
    npm install
+```
 3. Configure o banco de dados MongoDB em um arquivo
-   ```bash
+```bash
    .env
+```
 4. Execute a aplicação:
-   ```bash
+```bash
    npm run start:dev
+```
 
 ## estruturas de pastas
-<pre><code>
-
+```bash
 server/
 └── backend/
-     ├── src/ onde fica todo codigo do projeto
-     ├   ├── controllers/ para mensagens ex: inseridos com sucesso
-     ├   ├── DB/ tratar a conexão com banco de dados MONGODB
-     ├   ├── models/ contato com banco de dados que va dizer os modelos da aplicação com mongoose
-     ├   ├── routes/ Centralizar as rotas da aplicação
-     ├   └── utils/
-     └──app.js
-
-</code></pre>
+      ├── src/ onde fica todo codigo do projeto
+      ├── controllers/ para mensagens ex: inseridos com sucesso
+      ├── DB/ tratar a conexão com banco de dados MONGODB
+      ├── models/ contato com banco de dados que va dizer os modelos da aplicação com mongoose
+      ├── routes/ Centralizar as rotas da aplicação
+      ├── utils/
+      └──app.js
+```
 
