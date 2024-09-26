@@ -60,10 +60,114 @@ O servidor será iniciado em http://localhost:3000.
 ## 3. Testar a API
 ### 3.1. Testar com Insomnia ou Postman
 A API possui as seguintes rotas principais:
-- GET <code>/api/capivaras/code> - Lista todas as capivaras.
-- GET <code>/api/capivaras/:id/code> - Obtém uma capivara específica.
-- POST <code>/api/capivaras/code> - Cria uma nova capivara.
-- PUT <code>/api/capivaras/:id/code> - Atualiza as informações de uma capivara.
-- DELETE <code>/api/capivaras/:id</code> - Remove uma capivara.
+- GET <code>/api/animals</code> - Lista todas as capivaras.
+- GET <code>/api/animals/:id</code> - Obtém uma capivara específica.
+- POST <code>/api/animals</code> - Cria uma nova capivara.  
+- PUT <code>/api/animals/:id</code> - Atualiza as informações de uma capivara.
+- DELETE <code>/api/animals/:id</code> - Remove uma capivara.
+
+## 4. Configurar o Frontend
+### 4.1. Instalar dependências
+Navegue até a pasta do frontend:
+
+```bash
+cd frontend
+```
+```bash
+npm install
+```
+### 4.2. Executar o frontend
+```bash
+npm run start:dev
+```
+A interface estará disponível em <code>http://localhost:3001.</code>
+
+## 5. Utilizar Docker (Opcional)
+### 5.1. Build e execução com Docker
+Caso prefira utilizar o Docker, na pasta raiz do projeto:
+```bash
+docker-compose up --build
+```
+Isso vai rodar tanto o backend quanto o frontend.
+
+# 📂 Estrutura do Projeto
+<prev><code>
+/capivara-zoo
+│
+├── backend
+│   ├── src
+│   │   ├── controllers
+│   │   ├── models
+│   │   ├── routes
+│   │   ├── db
+│   └── Dockerfile
+│
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   └── App.js
+│   └── Dockerfile
+│
+└── docker-compose.yml
+</code></prev>
+
+# 📡 Endpoints da API
+   <table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Endpoint</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td><code>/api/capivaras</code></td>
+                <td>Lista todas as capivaras</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td><code>/api/capivaras/:id</code></td>
+                <td>Retorna uma capivara específica</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td><code>/api/capivaras</code></td>
+                <td>Cria um novo registro de capivara</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td><code>/api/capivaras/:id</code></td>
+                <td>Atualiza um registro de capivara</td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td><code>/api/capivaras/:id</code></td>
+                <td>Remove uma capivara</td>
+            </tr>
+        </tbody>
+    </table>
+    
+# 🔍 Funcionalidades do Frontend
+
+- Listagem de Capivaras: Mostra todas as capivaras cadastradas.
+- Filtro por Habitat: Filtra capivaras com base no habitat.
+- CRUD Completo: Permite adicionar, editar e excluir capivaras diretamente na interface.
+
+# 🤝 Contribuição
+Contribuições são muito bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+# 📝 Licença
+Este projeto está licenciado sob a MIT License.
+
+<p>Se você tiver dúvidas ou sugestões, entre em contato em <a href="mailto:virgilio_cesar.dev@outlook.com">virgilio_cesar.dev@outlook.com.</p>
+
+
+
+
+
+
+
 
 
