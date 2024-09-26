@@ -5,9 +5,9 @@ import "./App.css";
 function App() {
   const [animal, setAnimal] = useState([]);
   const [habitat, setHabitat] = useState("");
-  const [filteredAnimal, setFilteredAnimals] = useState([]);
+  const [filteredAnimal, setFilteredAnimal] = useState([]);
   const [editAnimalId, setEditAnimalId] = useState(null);
-  const [newAnimal, setNewAnimals] = useState({
+  const [newAnimal, setNewAnimal] = useState({
     name: "",
     age: "",
     weight: "",
@@ -26,7 +26,7 @@ function App() {
     try {
       const response = await axios.get("http://localhost:3000/api/animals");
       setAnimal(response.data);
-      setFilteredAnimals(response.data);
+      setFilteredAnimal(response.data);
       return response.data;
     } catch (error) {
       console.log("Erro ao buscar Animal:", error);
@@ -40,13 +40,24 @@ function App() {
           capivara.habitat.toLowerCase().includes(habitat.toLowerCase())
         )
       : animal;
-    setFilteredAnimals(filtered);
+    setFilteredAnimal(filtered);
   }, [habitat, animal]);
 
   //? Function to add new animal
-  const addAnimal = async () => {
+  const addAnimal = async (e) => {
+    e.preventDefault();
     try {
       await axios.post("http://localhost:3000/api/animals", newAnimal);
+      setNewAnimal({
+        name: "",
+        age: "",
+        weight: "",
+        status: "",
+        habitat: "",
+        behavior: "",
+        breed: "",
+        observations: "",
+      });
       fetchAnimals();
     } catch (error) {
       console.log("Erro ao adicionar Animal:", error);
@@ -56,7 +67,8 @@ function App() {
   //? Function to delete animal
   const deleteAnimal = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/animals/${id}`);
+        await axios.delete(`http://localhost:3000/api/animals/${id}`);
+        
       fetchAnimals();
     } catch (error) {
       console.log("Erro ao deletar Animal:", error);
@@ -64,10 +76,24 @@ function App() {
   };
 
   //? Function to update animal
-  const updateAnimal = async (id) => {
+  const updateAnimal = async (e) => {
+    e.preventDefault();
     try {
-      await axios.put(`http://localhost:3000/api/animals/${id}`, newAnimal);
-      setEditAnimalsId(null);
+      await axios.put(
+        `http://localhost:3000/api/animals/${editAnimalId}`,
+        newAnimal
+      );
+      setEditAnimalId(null);
+      setNewAnimals({
+        name: "",
+        age: "",
+        weight: "",
+        status: "",
+        habitat: "",
+        behavior: "",
+        diet: "",
+        observations: "",
+      });
       fetchAnimals();
     } catch (error) {
       console.log("Erro ao editar Animal:", error);
@@ -89,8 +115,8 @@ function App() {
 
         {/*//? Form to add edit capybara */}
         <div style={{ display: modalOpen }} id="modal">
-          <form>
-            <h2></h2>
+          <form onSubmit={editAnimalId ? updateAnimal : addAnimal}>
+            <h2>{editAnimalId ? "Editar Animal" : "Adicionar Animal"}</h2>
             <input
               type="text"
               placeholder="Nome"
@@ -98,14 +124,16 @@ function App() {
               onChange={(e) =>
                 setNewAnimal({ ...newAnimal, name: e.target.value })
               }
+              required
             />
             <input
-              type="text"
+              type="number"
               placeholder="Idade"
               value={newAnimal.age}
               onChange={(e) =>
                 setNewAnimal({ ...newAnimal, age: e.target.value })
               }
+              required
             />
             <input
               type="text"
@@ -114,6 +142,7 @@ function App() {
               onChange={(e) =>
                 setNewAnimal({ ...newAnimal, weight: e.target.value })
               }
+              required
             />
             <input
               type="text"
@@ -122,6 +151,7 @@ function App() {
               onChange={(e) =>
                 setNewAnimal({ ...newAnimal, status: e.target.value })
               }
+              required
             />
             <input
               type="text"
@@ -130,6 +160,7 @@ function App() {
               onChange={(e) =>
                 setNewAnimal({ ...newAnimal, habitat: e.target.value })
               }
+              required
             />
             <input
               type="text"
@@ -155,27 +186,59 @@ function App() {
                 setNewAnimal({ ...newAnimal, observations: e.target.value })
               }
             />
-            <button onClick={editAnimal ? updateAnimal : addAnimal}>
-              {editAnimal ? "Atualizar" : "Adicionar"}
+            <button type="submit">
+              {editAnimalId ? "Atualizar" : "Adicionar"}
+            </button>
+            <button
+              onClick={() => {
+                setModalOpen("none");
+              }}
+              type="submit"
+            >
+              {"Fechar"}
             </button>
           </form>
+        </div>
+        <div>
+          <label htmlFor="habitat">Filtrar por Habitat </label>
+          <input
+            type="text"
+            id="habitat"
+            value={habitat}
+            onChange={(e) => setHabitat(e.target.value)}
+            placeholder="Digite o  habitat"
+          />
+          <button onClick={() => setModalOpen("block")}>{"Adicionar"}</button>
         </div>
 
         {/* //? List of capybaras */}
         <ul>
-          {filteredAnimal.map((animal) => (
-            <li key={animal.id}>
-              <strong>{animal.name}</strong>
-              <p>Idade: {animal.age}</p>
-              <p>Peso: {animal.weight}</p>
-              <p>Status: {animal.status}</p>
-              <p>Habitat: {animal.habitat}</p>
-              <p>Comportamento: {animal.behavior}</p>
-              <p>Dieta: {animal.diet}</p>
-              <p>Observações: {animal.observations}</p>
-              <button onClick={() => setEditAnimalId(animal.id)}>Editar</button>
-            </li>
-          ))}
+          {filteredAnimal.length > 0 ? (
+            filteredAnimal.map((animal) => (
+              <li key={animal.id}>
+                <strong>Nome:</strong> {animal.name}
+                <br />
+                <strong>Idade:</strong> {animal.age}
+                <br />
+                <strong>Peso:</strong> {animal.weight}
+                <br />
+                <strong>Status:</strong> {animal.status}
+                <br />
+                <strong>Habitat: </strong> {animal.habitat}
+                <br />
+                <strong>Comportamento:</strong> {animal.behavior || "N/A"}
+                <br />
+                <strong>Dieta:</strong> {animal.diet || "N/A"}
+                <br />
+                <strong>Observações:</strong> {animal.observations || "N/A"}
+                <br />
+                <button onClick={() => editAnimal(animal.id)}>Editar</button>
+                <button onClick={() => deleteAnimal(animal._id)}>Excluir</button>
+              </li>
+            ))
+          ) : (
+            <p>Nenhum resultado encontrado</p>
+          )}
         </ul>
       </div>
     </>
