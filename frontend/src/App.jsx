@@ -136,7 +136,7 @@ function App() {
               required
             />
             <input
-              type="text"
+              type="number"
               placeholder="Peso"
               value={newAnimal.weight}
               onChange={(e) =>
@@ -218,9 +218,9 @@ function App() {
               <li key={animal.id}>
                 <strong>Nome:</strong> {animal.name}
                 <br />
-                <strong>Idade:</strong> {animal.age}
+                <strong>Idade:</strong> {animal.age} anos
                 <br />
-                <strong>Peso:</strong> {animal.weight}
+                <strong>Peso:</strong> {animal.weight} kg
                 <br />
                 <strong>Status:</strong> {animal.status}
                 <br />
@@ -233,7 +233,9 @@ function App() {
                 <strong>Observações:</strong> {animal.observations || "N/A"}
                 <br />
                 <button onClick={() => editAnimal(animal)}>Editar</button>
-                <button onClick={() => deleteAnimal(animal._id)}>Excluir</button>
+                <button onClick={() => deleteAnimal(animal._id)}>
+                  Excluir
+                </button>
               </li>
             ))
           ) : (
