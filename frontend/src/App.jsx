@@ -84,7 +84,7 @@ function App() {
         newAnimal
       );
       setEditAnimalId(null);
-      setNewAnimals({
+      setNewAnimal({
         name: "",
         age: "",
         weight: "",
@@ -232,7 +232,7 @@ function App() {
                 <br />
                 <strong>Observações:</strong> {animal.observations || "N/A"}
                 <br />
-                <button onClick={() => editAnimal(animal.id)}>Editar</button>
+                <button onClick={() => editAnimal(animal)}>Editar</button>
                 <button onClick={() => deleteAnimal(animal._id)}>Excluir</button>
               </li>
             ))
