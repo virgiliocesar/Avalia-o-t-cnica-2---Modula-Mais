@@ -123,27 +123,27 @@ Isso vai rodar tanto o backend quanto o frontend.
         <tbody>
             <tr>
                 <td>GET</td>
-                <td><code>/api/capivaras</code></td>
+                <td><code>/api/animals</code></td>
                 <td>Lista todas as capivaras</td>
             </tr>
             <tr>
                 <td>GET</td>
-                <td><code>/api/capivaras/:id</code></td>
+                <td><code>/api/animals/:id</code></td>
                 <td>Retorna uma capivara específica</td>
             </tr>
             <tr>
                 <td>POST</td>
-                <td><code>/api/capivaras</code></td>
+                <td><code>/api/animals</code></td>
                 <td>Cria um novo registro de capivara</td>
             </tr>
             <tr>
                 <td>PUT</td>
-                <td><code>/api/capivaras/:id</code></td>
+                <td><code>/api/animals/:id</code></td>
                 <td>Atualiza um registro de capivara</td>
             </tr>
             <tr>
                 <td>DELETE</td>
-                <td><code>/api/capivaras/:id</code></td>
+                <td><code>/api/animals/:id</code></td>
                 <td>Remove uma capivara</td>
             </tr>
         </tbody>
