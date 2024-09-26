@@ -15,6 +15,6 @@ conn();
 //? Routes
 app.use("/api/animals", animalsRoutes);
 
-app.listen(3000, () =>{
+app.listen(process.env.PORT, () => {
   console.log("Servidor online");
 });

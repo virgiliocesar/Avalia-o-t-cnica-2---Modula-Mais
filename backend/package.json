@@ -4,7 +4,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start:dev": "node --watch src/app.js"
+    "start:dev": "node --env-file=.env.exemplo --watch src/app.js"
   },
   "keywords": [],
   "author": "",

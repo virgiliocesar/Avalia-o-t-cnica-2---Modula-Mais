@@ -4,7 +4,7 @@ async function main() {
     try {
         // mongoose.set("strictQuery", true);
         await mongoose.connect(
-          "mongodb+srv://virgilio:ovb7yJShR5lgNoOc@cluster0.8mno9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+          process.env.MONGO_DB,
         );
         console.log("Conectado ao MongoDB");
     } catch (error) {
