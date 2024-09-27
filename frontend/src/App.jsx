@@ -186,10 +186,10 @@ function App() {
                 setNewAnimal({ ...newAnimal, observations: e.target.value })
               }
             />
-            <button type="submit">
+            <button className="btn-green" type="submit">
               {editAnimalId ? "Atualizar" : "Adicionar"}
             </button>
-            <button
+            <button className="btn-red"
               onClick={() => {
                 setModalOpen("none");
               }}
@@ -199,8 +199,10 @@ function App() {
             </button>
           </form>
         </div>
-        <div>
-          <label htmlFor="habitat">Filtrar por Habitat </label>
+        <div className="search-container">
+          <label className="search" htmlFor="habitat">
+            Filtrar por Habitat{" "}
+          </label>
           <input
             type="text"
             id="habitat"
@@ -208,7 +210,10 @@ function App() {
             onChange={(e) => setHabitat(e.target.value)}
             placeholder="Digite o  habitat"
           />
-          <button onClick={() => setModalOpen("block")}>{"Adicionar"}</button>
+
+            <button className="btn-green mgn-left" onClick={() => setModalOpen("block")}>
+              {"Adicionar"}
+            </button>
         </div>
 
         {/* //? List of capybaras */}
@@ -232,10 +237,20 @@ function App() {
                 <br />
                 <strong>Observações:</strong> {animal.observations || "N/A"}
                 <br />
-                <button onClick={() => editAnimal(animal)}>Editar</button>
-                <button onClick={() => deleteAnimal(animal._id)}>
-                  Excluir
-                </button>
+                <div className="btn-container">
+                  <button
+                    className="btn-green"
+                    onClick={() => editAnimal(animal)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className="btn-red"
+                    onClick={() => deleteAnimal(animal._id)}
+                  >
+                    Excluir
+                  </button>
+                </div>
               </li>
             ))
           ) : (
