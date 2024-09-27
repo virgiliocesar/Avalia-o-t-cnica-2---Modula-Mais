@@ -113,9 +113,7 @@ Isso vai rodar tanto o backend quanto o frontend.
 │
 ├── docker-compose.yml
 └── README.md
-
 </code></prev>
-
 # 📡 Endpoints da API
    <table>
         <thead>
