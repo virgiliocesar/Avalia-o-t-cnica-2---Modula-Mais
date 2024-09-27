@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    command: npm run start:dev -- --host
+    depends_on:
+      - backend
+    networks:
+      - capivara-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    command: npm run start:dev
+    networks:
+      - capivara-network
+
+networks:
+  capivara-network:
+    driver: bridge
