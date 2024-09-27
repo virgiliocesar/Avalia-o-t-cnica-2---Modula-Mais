@@ -97,19 +97,23 @@ Isso vai rodar tanto o backend quanto o frontend.
 │
 ├── backend
 │   └── src
-│       ├── controllers
-│       ├── models
-│       ├── routes
-│       ├── db
-│       ├── models
-│       └── App.js
-│ 
+│   │    ├── controllers
+│   │    ├── models
+│   │    ├── routes
+│   │    ├── db
+│   │    ├── models
+│   │    └── App.js
+│   └── Dockerfile
+│
 ├── frontend
 │   ├── src
 │   │   └── App.js  
-│   └── svg
+│   ├── svg
+│   └── Dockerfile
 │
+├── docker-compose.yml
 └── README.md
+
 </code></prev>
 
 # 📡 Endpoints da API
