@@ -19,6 +19,7 @@ Este projeto foi desenvolvido para auxiliar um biólogo na catalogação de capi
    <strong> Frontend </strong>
    <ul>
      <li><a href="https://pt-br.legacy.reactjs.org/">React</a></li>
+     <li><a href="https://axios-http.com/">Axios</a></li>
      <li><a href="https://www.w3schools.com/Css/">CSS (para estilização)</a></li>
    </ul>
 
@@ -92,23 +93,23 @@ Isso vai rodar tanto o backend quanto o frontend.
 
 # 📂 Estrutura do Projeto
 <prev><code>
-/capivara-zoo
+/Modula-Mais-teste
 │
 ├── backend
-│   ├── src
-│   │   ├── controllers
-│   │   ├── models
-│   │   ├── routes
-│   │   ├── db
-│   └── Dockerfile
-│
+│   └── src
+│       ├── controllers
+│       ├── models
+│       ├── routes
+│       ├── db
+│       ├── models
+│       └── App.js
+│ 
 ├── frontend
 │   ├── src
-│   │   ├── components
-│   │   └── App.js
-│   └── Dockerfile
+│   │   └── App.js  
+│   └── svg
 │
-└── docker-compose.yml
+└── README.md
 </code></prev>
 
 # 📡 Endpoints da API
