@@ -105,7 +105,12 @@ function App() {
     setEditAnimalId(animal._id);
     setNewAnimal(animal);
     setModalOpen("block");
+    scrollToTop();
   };
+  //? Function to scroll to top
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   const [modalOpen, setModalOpen] = useState("none");
   return (
