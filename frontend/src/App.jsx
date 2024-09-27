@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+const API_URL = "https://catalogo-de-capivara.onrender.com/api/animals/";
+const API_LOCAL = "http://localhost:3000/api/animals/";
+
 function App() {
   const [animal, setAnimal] = useState([]);
   const [habitat, setHabitat] = useState("");
@@ -24,7 +27,7 @@ function App() {
 
   const fetchAnimals = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/animals");
+      const response = await axios.get(API_URL || API_LOCAL);
       setAnimal(response.data);
       setFilteredAnimal(response.data);
       return response.data;
@@ -47,7 +50,7 @@ function App() {
   const addAnimal = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/animals", newAnimal);
+      await axios.post(API_URL || API_LOCAL, newAnimal);
       setNewAnimal({
         name: "",
         age: "",
@@ -67,8 +70,8 @@ function App() {
   //? Function to delete animal
   const deleteAnimal = async (id) => {
     try {
-        await axios.delete(`http://localhost:3000/api/animals/${id}`);
-        
+        await axios.delete(API_URL + id || API_LOCAL + id);
+
       fetchAnimals();
     } catch (error) {
       console.log("Erro ao deletar Animal:", error);
@@ -79,10 +82,7 @@ function App() {
   const updateAnimal = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(
-        `http://localhost:3000/api/animals/${editAnimalId}`,
-        newAnimal
-      );
+      await axios.put(API_URL || API_LOCAL + editAnimalId, newAnimal);
       setEditAnimalId(null);
       setNewAnimal({
         name: "",
