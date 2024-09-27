@@ -59,7 +59,10 @@ npm run start:dev
 O servidor será iniciado em http://localhost:3000.
 
 ## 3. Testar a API
-### 3.1. Testar com Insomnia ou Postman
+### 3.1. Testar com <a href="https://insomnia.rest/">Insomnia</a> ou <a href="https://www.postman.com/">Postman</a>
+
+<a href="https://www.mediafire.com/file/p4i0pvjvmbxtr8o/Insomnia_2024-09-26.json/file"> DOWLOAD Insomnia.JSON</a>
+
 A API possui as seguintes rotas principais:
 - GET <code>/api/animals</code> - Lista todas as capivaras.
 - GET <code>/api/animals/:id</code> - Obtém uma capivara específica.
