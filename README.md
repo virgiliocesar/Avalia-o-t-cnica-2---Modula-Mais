@@ -37,7 +37,7 @@ Este projeto foi desenvolvido para auxiliar um biólogo na catalogação de capi
 ### 1. Clonar o repositório
 
 ```bash
-  git clone https://github.com/virgiliocesar/Modula-Mais-teste.git
+  git@github.com:virgiliocesar/Catalogo-de-capivara.git
 ```
 ```bash
 cd Modula-Mais-teste
