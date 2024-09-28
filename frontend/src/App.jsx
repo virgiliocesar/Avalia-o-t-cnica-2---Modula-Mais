@@ -82,7 +82,10 @@ function App() {
   const updateAnimal = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(API_URL || API_LOCAL + editAnimalId, newAnimal);
+      await axios.put(
+        API_URL + editAnimalId || API_LOCAL + editAnimalId,
+        newAnimal
+      );
       setEditAnimalId(null);
       setNewAnimal({
         name: "",
