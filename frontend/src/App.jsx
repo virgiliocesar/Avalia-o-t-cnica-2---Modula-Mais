@@ -29,7 +29,7 @@ function App() {
   const fetchAnimals = async () => {
     try {
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       const response = await axios.get(API_URL || API_LOCAL);
       setAnimal(response.data);
       setFilteredAnimal(response.data);
