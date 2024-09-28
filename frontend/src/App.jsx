@@ -11,6 +11,7 @@ function App() {
   const [filteredAnimal, setFilteredAnimal] = useState([]);
   const [editAnimalId, setEditAnimalId] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [newAnimal, setNewAnimal] = useState({
     name: "",
     age: "",
@@ -38,6 +39,7 @@ function App() {
       console.log("Erro ao buscar Animal:", error);
     } finally {
       setLoading(false);
+      setInitialLoad(false);
     }
   };
 
@@ -202,7 +204,8 @@ function App() {
             <button className="btn-green" type="submit">
               {editAnimalId ? "Atualizar" : "Adicionar"}
             </button>
-            <button className="btn-red"
+            <button
+              className="btn-red"
               onClick={() => {
                 setModalOpen("none");
               }}
@@ -224,54 +227,57 @@ function App() {
             placeholder="Digite o  habitat"
           />
 
-            <button className="btn-green mgn-left" onClick={() => setModalOpen("block")}>
-              {"Adicionar"}
-            </button>
+          <button
+            className="btn-green mgn-left"
+            onClick={() => setModalOpen("block")}
+          >
+            {"Adicionar"}
+          </button>
         </div>
 
         {/* //? List of capybaras */}
-        {loading ? (
-            <p>Carregando capivaras...</p> //? Displays charging status
-          ) : (
-        <ul>
-          {filteredAnimal.length > 0 ? (
-            filteredAnimal.map((animal) => (
-              <li key={animal.id}>
-                <strong>Nome:</strong> {animal.name}
-                <br />
-                <strong>Idade:</strong> {animal.age} anos
-                <br />
-                <strong>Peso:</strong> {animal.weight} kg
-                <br />
-                <strong>Status:</strong> {animal.status}
-                <br />
-                <strong>Habitat: </strong> {animal.habitat}
-                <br />
-                <strong>Comportamento:</strong> {animal.behavior || "N/A"}
-                <br />
-                <strong>Dieta:</strong> {animal.diet || "N/A"}
-                <br />
-                <strong>Observações:</strong> {animal.observations || "N/A"}
-                <br />
-                <div className="btn-container">
-                  <button
-                    className="btn-green"
-                    onClick={() => editAnimal(animal)}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    className="btn-red"
-                    onClick={() => deleteAnimal(animal._id)}
-                  >
-                    Excluir
-                  </button>
-                </div>
-              </li>
-            ))
-          ) : (
-            <p>Nenhum resultado encontrado</p>
-          )}
+        {initialLoad && loading ? (
+          <p>Carregando capivaras...</p> //? Displays charging status
+        ) : (
+          <ul>
+            {filteredAnimal.length > 0 ? (
+              filteredAnimal.map((animal) => (
+                <li key={animal.id}>
+                  <strong>Nome:</strong> {animal.name}
+                  <br />
+                  <strong>Idade:</strong> {animal.age} anos
+                  <br />
+                  <strong>Peso:</strong> {animal.weight} kg
+                  <br />
+                  <strong>Status:</strong> {animal.status}
+                  <br />
+                  <strong>Habitat: </strong> {animal.habitat}
+                  <br />
+                  <strong>Comportamento:</strong> {animal.behavior || "N/A"}
+                  <br />
+                  <strong>Dieta:</strong> {animal.diet || "N/A"}
+                  <br />
+                  <strong>Observações:</strong> {animal.observations || "N/A"}
+                  <br />
+                  <div className="btn-container">
+                    <button
+                      className="btn-green"
+                      onClick={() => editAnimal(animal)}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="btn-red"
+                      onClick={() => deleteAnimal(animal._id)}
+                    >
+                      Excluir
+                    </button>
+                  </div>
+                </li>
+              ))
+            ) : (
+              <p>Nenhum resultado encontrado</p>
+            )}
           </ul>
         )}
       </div>
