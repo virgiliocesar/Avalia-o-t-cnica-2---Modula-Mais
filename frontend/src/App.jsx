@@ -10,8 +10,6 @@ function App() {
   const [habitat, setHabitat] = useState("");
   const [filteredAnimal, setFilteredAnimal] = useState([]);
   const [editAnimalId, setEditAnimalId] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [initialLoad, setInitialLoad] = useState(true);
   const [newAnimal, setNewAnimal] = useState({
     name: "",
     age: "",
@@ -29,17 +27,12 @@ function App() {
 
   const fetchAnimals = async () => {
     try {
-      setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 8000));
       const response = await axios.get(API_URL || API_LOCAL);
       setAnimal(response.data);
       setFilteredAnimal(response.data);
       return response.data;
     } catch (error) {
       console.log("Erro ao buscar Animal:", error);
-    } finally {
-      setLoading(false);
-      setInitialLoad(false);
     }
   };
 
@@ -236,9 +229,6 @@ function App() {
         </div>
 
         {/* //? List of capybaras */}
-        {initialLoad && loading ? (
-          <p>Carregando capivaras...</p> //? Displays charging status
-        ) : (
           <ul>
             {filteredAnimal.length > 0 ? (
               filteredAnimal.map((animal) => (
@@ -279,7 +269,6 @@ function App() {
               <p>Nenhum resultado encontrado</p>
             )}
           </ul>
-        )}
       </div>
     </>
   );
